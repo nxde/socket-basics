@@ -3,6 +3,7 @@ var express=require("express");
 var app=express();
 var http=require("http").Server(app);
 var io=require("socket.io")(http);
+var moment=require("moment");
 
 io.on("connection",function(socket){
     console.log("User connected with IO");
@@ -15,11 +16,13 @@ io.on("connection",function(socket){
         console.log("Message received: "+message.text);
 
         //Send to all: socket.broadcast.emit("message",message);
+        message.timestamp=moment().valueOf();
         socket.broadcast.emit("message",message);
     });
 
     socket.emit("message",{
-        text:"Welcome to the chat app"
+        text:"Welcome to the chat app",
+        timestamp:moment().valueOf()
     });
 });
 
