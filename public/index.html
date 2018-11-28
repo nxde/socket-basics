@@ -7,21 +7,16 @@
     <title>Home page</title>
 </head>
 <body>  
-    <h2>Socket IO</h2>
+    <h2>Join chat</h2>
 
-    <div class="messages"></div>
-
-    <form id="message-form">
-        <input type="text" name="message">
-        <input type="submit" value="Send">
+    <form action="/chat.html">
+        <label>Display name</label>
+        <input name="name">
+        <label>Room name</label>
+        <input name="room">
+        <input type="submit" value="Join">
     </form>
-
-
-    <script src="js/jquery-3.3.1.js"></script>
-    <script src="js/socket.io-1.7.4.js"></script>
-    <script src="js/moment.min.js"></script>
-    <script src="js/QueryParams.js"></script>
-    <script src="js/app.js"></script>
+   
     
 </body>
 </html>

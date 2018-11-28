@@ -5,6 +5,8 @@ var http=require("http").Server(app);
 var io=require("socket.io")(http);
 var moment=require("moment");
 
+var clientInfo={};
+
 io.on("connection",function(socket){
     console.log("User connected with IO");
 
@@ -12,12 +14,24 @@ io.on("connection",function(socket){
         console.log('user disconnected');
       });
 
+    socket.on("joinRoom",function(req){
+        clientInfo[socket.id]=req;
+        socket.join(req.room);
+        socket.broadcast.to(req.room).emit("message",{
+            name:"System",
+            text: req.name+" has joined!",
+            timestamp:moment().valueOf()
+        });
+    });
+
     socket.on("message",function(message){
         console.log("Message received: "+message.text);
-
-        //Send to all: socket.broadcast.emit("message",message);
         message.timestamp=moment().valueOf();
-        socket.broadcast.emit("message",message);
+
+        //Send to all: 
+        io.to(clientInfo[socket.id].room).emit("message",message);
+        //Send to all but the sender:
+        //socket.broadcast.emit("message",message);
     });
 
     socket.emit("message",{
