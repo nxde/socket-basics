@@ -1,0 +1,31 @@
+.vertical-center{
+    min-height: 100vh;    
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.no-padding{
+    padding:0;
+}
+.no-margin-bottom{
+    margin-bottom: 0;
+}
+
+.messages div{
+    border-bottom: 1px solid rgba(0,0,0,.125);
+    display: block;    
+    padding: .75rem 1.25rem;    
+    margin-bottom: -1px;
+}
+
+.messages div:nth-child(odd) { 
+    color: #818182;    
+    background-color: #fdfdfe;     
+}
+
+.messages div:nth-child(odd) { 
+    color: #1b1e21;    
+    background-color: #c6c8ca;
+
+}

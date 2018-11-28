@@ -4,18 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Home page</title>
+    <title>Register</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>  
-    <h2>Join chat</h2>
+    
+    <div class="vertical-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-md-offset-4 card bg-light mb-3" style="padding:0;">
+                    <div class="card-header">
+                            <h3>Join chat</h3>
+                    </div>
+                    <div class="card-body">
+                            <form action="/chat.html">
+                                <div class="form-group">
+                                    <label>Display name</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                                    <i class="fas fa-user"></i>
+                                            </span>                                
+                                        </div>
+                                        <input name="name" class="form-control">
+                                    </div>
+                                    
+                                </div>
+                                <div class="form-group">
+                                    <label>Room name</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                                <i class="fas fa-home"></i>
+                                            </span>                                
+                                        </div>
+                                        <input name="room" class="form-control">
+                                    </div>
+                                    
+                                    
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" value="Join" class="btn btn-primary btn-block">
+                                </div>
+                                
+                            </form>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <form action="/chat.html">
-        <label>Display name</label>
-        <input name="name">
-        <label>Room name</label>
-        <input name="room">
-        <input type="submit" value="Join">
-    </form>
    
     
 </body>
